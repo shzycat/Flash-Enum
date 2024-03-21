@@ -35,14 +35,11 @@ int main() {
 
 # Notes
 ### 1. It is not static reflection.
-   If need it to be calculated at compile time,  
-   it require higher version of each platform/compiler's version,  
-   and some functions need to be 'constexpr',  
-   and also we need 'std::string_view', which means at least c++17,  
-   but this header is written with c++11.  
-   But I will try to make it as static reflection one day in the future.  
+If need it to be calculated at compile time, it require higher version of each platform/compiler's version, and some functions need to be 'constexpr', and also we need 'std::string_view', which means at least c++17, but this header is written with c++11.  
+  
+But I will try to make it as static reflection one day in the future.  
      
 ### 2. Compiler version compatibility
 * MSVC++ version >= 12.0 (VS2013)
 * GCC >= 9.0
-* Clang >= 5? (still have some problems with Clang, need to be solve later)
+* Clang >= 5 ? (still have some problems with Clang, need to be solve later)
