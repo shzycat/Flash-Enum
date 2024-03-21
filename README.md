@@ -1,8 +1,8 @@
-# Introduce flash_enum
+# Introduce Flash Enum
 A tiny header-only C++11 library, provides Reflection for enums in C++.  
 
 # Demo
-```
+```C++
 enum EnumType
 {
     EnumValue1 = 1,
@@ -34,7 +34,7 @@ int main() {
 ```
 
 # Notes
-###1. It is not static reflection.
+### 1. It is not static reflection.
    If need it to be calculated at compile time,  
    it require higher version of each platform/compiler's version,  
    and some functions need to be 'constexpr',  
@@ -42,7 +42,7 @@ int main() {
    but this header is written with c++11.  
    But I will try to make it as static reflection one day in the future.  
      
-###2. Compiler version compatibility
+### 2. Compiler version compatibility
 * MSVC++ version >= 12.0 (VS2013)
 * GCC >= 9.0
 * Clang >= 5? (still have some problems with Clang, need to be solve later)
