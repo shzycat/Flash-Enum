@@ -40,6 +40,10 @@ If need it to be calculated at compile time, it require higher version of each p
 But I will try to make it as static reflection one day in the future.  
      
 ### 2. Compiler version compatibility
-* MSVC++ version >= 12.0 (VS2013)
-* GCC >= 9.0
-* Clang >= 5 ? (still have some problems with Clang, need to be solve later)
+* Clang >= 3.6
+* MSVC version >= 12.0 (VS2013)
+* GCC >= 9.1
+* MinGW gcc >= 9.1.0
+  
+  
+  

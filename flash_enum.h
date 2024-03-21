@@ -58,7 +58,7 @@ template<typename T, T ev>
 inline flect_string reflect_enum()
 {
 
-#if defined _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 	return __truncate_to_enum_val__<T>(__FUNCSIG__);
 #else
 	return __truncate_to_enum_val__<T>(__PRETTY_FUNCTION__);
@@ -71,7 +71,7 @@ template<typename T, typename NON_USE = void*>
 inline flect_string reflect_type(T enum_val)
 {
 	static_cast<void>(enum_val);
-#if defined _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 	return __truncate_to_enum_type__<T>(__FUNCSIG__);
 #else
 	return __truncate_to_enum_type__<T>(__PRETTY_FUNCTION__);
@@ -84,7 +84,7 @@ template<typename T, T ev>
 inline flect_string reflect_type()
 {
 
-#if defined _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 	return __truncate_to_enum_type__<T>(__FUNCSIG__);
 #else
 	return __truncate_to_enum_type__<T>(__PRETTY_FUNCTION__);
@@ -98,7 +98,7 @@ template<typename T, T ev>
 inline flect_string reflect_type_with_val()
 {
 
-#if defined _WIN32
+#if defined(_WIN32) && defined(_MSC_VER)
 	return __truncate_to_type_with_val__<T>(__FUNCSIG__);
 #else
 	return __truncate_to_type_with_val__<T>(__PRETTY_FUNCTION__);
@@ -107,7 +107,7 @@ inline flect_string reflect_type_with_val()
 }
 
 
-template<typename T, typename std::enable_if<std::is_enum<T>::value>::type* = nullptr>
+template<typename T, typename std::enable_if<std::is_enum<T>::value>::type*>
 inline std::string __truncate_to_enum_val__(char const *str)
 {
 	//find '<' and '>'
@@ -174,7 +174,7 @@ inline std::string __truncate_to_enum_val__(char const *str)
 }
 
 
-template<typename T, typename std::enable_if<std::is_enum<T>::value>::type* = nullptr>
+template<typename T, typename std::enable_if<std::is_enum<T>::value>::type*>
 inline std::string __truncate_to_enum_type__(char const *str)
 {
 	//find '<' and '>'
@@ -239,7 +239,7 @@ inline std::string __truncate_to_enum_type__(char const *str)
 	return et_name;
 }
 
-template<typename T, typename std::enable_if<std::is_enum<T>::value>::type* = nullptr>
+template<typename T, typename std::enable_if<std::is_enum<T>::value>::type*>
 inline std::string __truncate_to_type_with_val__(char const *str)
 {
 	//find '<' and '>'
