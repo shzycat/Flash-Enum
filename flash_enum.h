@@ -37,12 +37,12 @@ inline std::string __truncate_to_enum_type__(char const *str);
 template<typename T, typename std::enable_if<std::is_enum<T>::value>::type* = nullptr>
 inline std::string __truncate_to_type_with_val__(char const *str);
 
-/* convert this to std::string, */
-/* or use a std::string variable to recv it. */
-struct flect_string
+/* convert this type to std::string, */
+/* or use a std::string variable to receive it. */
+struct StringType
 {
-	flect_string(std::string &&val) : val_(val) {}
-	~flect_string() = default;
+	StringType(std::string &&val) : val_(val) {}
+	~StringType() = default;
 
 	operator std::string&&()
 	{
@@ -53,9 +53,10 @@ private:
 	std::string val_;
 };
 
-/* return enum name as string */
+/* return enum name as string. */
+/* use std::string to receive the return StringType. */
 template<typename T, T ev>
-inline flect_string reflect_enum()
+inline StringType reflect_enum()
 {
 
 #if defined(_WIN32) && defined(_MSC_VER)
@@ -66,9 +67,10 @@ inline flect_string reflect_enum()
 
 }
 
-/* return enum type as string */
+/* return enum type as string. */
+/* use std::string to receive the return StringType. */
 template<typename T, typename NON_USE = void*>
-inline flect_string reflect_type(T enum_val)
+inline StringType reflect_type(T enum_val)
 {
 	static_cast<void>(enum_val);
 #if defined(_WIN32) && defined(_MSC_VER)
@@ -79,9 +81,10 @@ inline flect_string reflect_type(T enum_val)
 
 }
 
-/* return enum type as string */
+/* return enum type as string. */
+/* use std::string to receive the return StringType. */
 template<typename T, T ev>
-inline flect_string reflect_type()
+inline StringType reflect_type()
 {
 
 #if defined(_WIN32) && defined(_MSC_VER)
@@ -92,10 +95,11 @@ inline flect_string reflect_type()
 
 }
 
-/* return enum type and value as string */
+/* return enum type and value as string. */
 /* like "EnumType::ENUM_VAL" */
+/* use std::string to receive the return StringType. */
 template<typename T, T ev>
-inline flect_string reflect_type_with_val()
+inline StringType reflect_type_with_val()
 {
 
 #if defined(_WIN32) && defined(_MSC_VER)
